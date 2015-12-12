@@ -25,10 +25,11 @@ int quick_sort (int *fdArray) {
         
         while (*(fdArray + j) > temp_central) 
             j--;
-    
+        
+            
+        if (i <= j) {
             *(fdArray + i) = *(fdArray + j);
             *(fdArray + j) = temp;
-            if (i < j) {
                 i++;
                 j--;
             }
@@ -46,7 +47,7 @@ int main() {
     int *fdUnsorted = unsorted;
    
     for (i = 0; i < MAX_ELEMENTS; i++) {
-        unsorted[i] = rand() % 100;
+        unsorted[i] = rand() % 10000;
         printf("unsorted[%d] = %d\n", i, unsorted[i]);
     }
     
