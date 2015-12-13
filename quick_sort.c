@@ -13,7 +13,7 @@ void swap_int (int *fdArray, int i, int j) {
     
 }
  
-int quick_sort (int *fdArray) {
+int quick_sort (int *fdArray, int low, int high) {
      
     int i = 0;
     int j = 0;
@@ -21,11 +21,11 @@ int quick_sort (int *fdArray) {
     int ind_central = 0;
     int temp = 0;
     
-    ind_central = MAX_ELEMENTS / 2;
+    ind_central = (high - low) / 2;
     int temp_central = fdArray [ind_central];
     
-    i = 0;
-    j = MAX_ELEMENTS - 1;
+    i = low;
+    j = high;
      
      while (i < j) {
         
@@ -61,11 +61,11 @@ int main() {
         printf("unsorted[%d] = %d\n", i, unsorted[i]);
     }
     
-        quick_sort (fdUnsorted);
+        quick_sort (fdUnsorted, 0, 9);
             
     for (n = 0; n < MAX_ELEMENTS; n++) {
         printf("sorted [%d] = %d\n", n, unsorted[n]);
     }
-   
+    
     return 0;
 }
