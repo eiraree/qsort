@@ -2,6 +2,16 @@
 #include <stdlib.h>
  
 #define MAX_ELEMENTS 10
+
+
+void swap_int (int *fdArray, int i, int j) {
+ int temp = 0; 
+ 
+ temp = fdArray [i];
+ fdArray [i] = fdArray [j];
+ fdArray [j] = temp;
+    
+}
  
 int quick_sort (int *fdArray) {
      
@@ -12,24 +22,24 @@ int quick_sort (int *fdArray) {
     int temp = 0;
     
     ind_central = MAX_ELEMENTS / 2;
-    int temp_central = *(fdArray + ind_central);
+    int temp_central = fdArray [ind_central];
     
     i = 0;
     j = MAX_ELEMENTS - 1;
      
      while (i < j) {
         
-        while (*(fdArray + i) < temp_central) 
+        while (fdArray [i] < temp_central) 
             i++;
-            temp = *(fdArray + i);
+            temp = fdArray [i];
         
-        while (*(fdArray + j) > temp_central) 
+        while (fdArray [j] > temp_central) 
             j--;
         
             
         if (i <= j) {
-            *(fdArray + i) = *(fdArray + j);
-            *(fdArray + j) = temp;
+            fdArray [i] = fdArray [j];
+            fdArray [j] = temp;
                 i++;
                 j--;
             }
